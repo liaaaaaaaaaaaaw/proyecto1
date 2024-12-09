@@ -1,0 +1,122 @@
+body {
+    background-color: #E3F2FD;
+    color: #0A396A;
+    font-family: "Urbanist", sans-serif;
+    margin: 0;
+}
+ul{
+    font-size: 20px;
+}
+h1 {
+    font-family: "Spicy Rice", serif;
+    font-size: 3rem;
+    text-align: center;
+}
+
+h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: 2rem;
+    margin: 10px;
+    text-align: center;
+}
+
+h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: 22px;
+}
+
+p {
+    margin: 10px;
+    font-size: 20px;
+}
+.navbar {
+    background-color: #333;
+    color: white;
+}
+
+.navbar .nav-link {
+    color: green;
+    font-size: 25px;
+}
+
+.navbar .nav-link:hover {
+    color: #ff9800;
+}
+.intro img {
+    display: block;
+    margin: 15px auto;
+    border: solid black 5px;
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid div {
+    background-color: #F5F5F5;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.grid img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    border-radius: 10px;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+.soc {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.soc a img {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .grid img {
+        width: 100%;
+        height: auto;
+    }
+    .navbar .nav-link {
+        font-size: 14px;
+    }
+    .soc {
+        flex-wrap: wrap;
+    }
+    .soc a img {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Recuperar Contraseña</title>
+        <link rel="stylesheet" href="css\estilos2.css">
+        <style>
+        .nuevaContraseña {
+            display: none; 
+        }
+    </style>
+    </head>
+    <body>
+        <div class="todo">
+            <h1>¿Olvidó su contraseña?</h1>
+            <form>
+                <label for="correo">Ingrese su correo:</label><br><br>
+                <input type="email" placeholder="Ingrese su correo generado"
+                    id="correo"><br><br>
+            </form>
+            <button type="button" onclick="comprobar()">Verificar</button><br><br>
+            <div id="resultado"></div>
+            <div class="nuevaContraseña" id="nuevaContraseña">
+                <h2>Ingrese su nueva contraseña</h2>
+                <label for="nuevaContraseñaa">Nueva Contraseña:</label><br>
+                <input type="password" id="nuevaContraseñaa" placeholder="Nueva
+                    contraseña"><br>
+                <button type="button" onclick="guardarNuevaContraseña()">Guardar
+                    nueva contraseña</button>
+            </div>
+            <div id="resultado2"></div>
+        </div>
+        <script>
+        function comprobar() {
+            const correoGuardado = localStorage.getItem("correo"); 
+            const correoIngresado = document.getElementById("correo").value; 
+            const resultado = document.getElementById("resultado"); 
+            const nuevaContraseñaSection = document.getElementById("nuevaContraseña");
+
+            if (correoIngresado===correoGuardado) {
+                resultado.innerHTML="Correo verificado. Ahora puedes ingresar tu nueva contraseña.";
+                nuevaContraseñaSection.style.display="block";
+            } else {
+                resultado.innerHTML = "El correo no es válido.";
+                nuevaContraseñaSection.style.display ="none"; 
+            }
+        }
+
+        function guardarNuevaContraseña() {
+            const nuevaContraseña=document.getElementById("nuevaContraseñaa").value;
+            const resultado2=document.getElementById("resultado2");
+            let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>_])[A-Za-z\d!@#$%^&*(),.?":{}|<>_]{9,}$/;
+            if (regex.test(nuevaContraseña)) {
+                localStorage.setItem("contrasena", nuevaContraseña);
+                window.location.href = "inicio.html";
+
+            } else {
+                resultado2.innerHTML = "La contraseña no es valida";
+            }
+        }
+    </script>
+    </body>
+</html>

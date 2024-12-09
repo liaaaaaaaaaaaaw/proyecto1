@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="css\estilos2.css">
+</head>
+<body>
+    <div class="todo">
+    <h1>Inicie Sesión</h1>
+    <form>
+        <br>
+        <label>Ingrese su correo:</label><br><br>
+        <input type="email" placeholder="Ingrese su correo generado" id="correo"><br><br>
+        <label>Ingrese su contraseña:</label><br><br>
+        <input type="password" id="contraseña" placeholder="Ingrese su contraseña"><br><br>
+    </form>
+    <br>
+    <button type="button" onclick="comprobar()">Enviar</button><br>
+    <br>
+    <div id="resultado"></div><br>
+    <button id="miBoton" style="display: none;" onclick="recuperar()" >Recuperar Contraseña</button>
+    <h2>¿Aun no tiene una cuenta?</h2>
+    <button type="button" onclick="crear()">Presione aqui</button>
+</div>
+    <script>
+        let c = 0;
+
+        function comprobar() {
+            const correoGuardado = localStorage.getItem("correo");
+            const contrasenaGuardada = localStorage.getItem("contrasena");
+            const correoIngresado = document.getElementById("correo").value;
+            const contrasenaIngresada = document.getElementById("contraseña").value;
+            const boton = document.getElementById("miBoton");
+
+            if (correoIngresado === correoGuardado && contrasenaIngresada === contrasenaGuardada) {
+                window.location.href = "index.html";
+            } else {
+                c++; 
+                if (c > 3) {
+                    document.getElementById("resultado").innerHTML = "Tu cuenta está bloqueada. Recupere su contraseña:";
+                    boton.style.display = "block"; 
+                } else {
+                    document.getElementById("resultado").innerHTML = "El correo o la contraseña no son válidos.";
+                    boton.style.display = "none";
+                }
+            }
+        }
+        function crear(){
+            window.location.href = "index1.html";
+        }
+        function recuperar (){
+            window.location.href = "recuperar.html";
+        }
+    </script>
+</body>
+</html>

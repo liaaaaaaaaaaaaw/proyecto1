@@ -1,0 +1,42 @@
+body {
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+.todo {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    margin-left: 35%;
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+label {
+    font-weight: bold;
+    display: block;
+    color: #555;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+button {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="css\estilos2.css">
+    </head>
+    <body>
+        <div class="todo">
+            <h1>¡Bienvenido!</h1>
+            <form action="">
+                <label for="">Nombre</label><br>
+                <input type="text" placeholder="Ingrese su nombre" id="nombre"><br>
+                <label for="">Segundo nombre</label><br>
+                <input type="text" placeholder="Ingrese su segundo nombre"
+                    id="segundoN"><br>
+                <label for="">Apellido</label><br>
+                <input type="text" placeholder="Ingrese su apellido"
+                    id="apellidos"><br>
+                <label for="">Apellido Materno</label><br>
+                <input type="text" placeholder="Ingrese su segundo apellido"
+                    id="segundoA"><br>
+                <label for="">Fecha de nacimiento</label><br>
+                <input type="date" id="fecha"><br>
+                <label for="">Para generar su correo electronico aprete aqui</label>
+            </form>
+            <button type="button" onclick="correo()" id="correo">Enviar</button><br>
+            <label for="">Su correo electronico es:</label>
+            <div id="resultado"></div>
+            <form action="">
+                <label for="">Contraseña</label>
+                <input type="password" name="contraseña" id="contraseña">
+            </form>
+            <button type="button" onclick="contraseña()">Validar</button>
+            <div id="contra"></div>
+        </div>
+        <script>
+            function correo(){
+                const nom=document.getElementById("nombre").value;
+                const ape=document.getElementById("apellidos").value;
+                const fe=document.getElementById("fecha").value;
+                const ape2=document.getElementById("segundoA").value;
+                const nom2=document.getElementById("segundoN").value;
+                let partenom2=nom2.slice(2, nom2.length);
+                let parteape2=ape2.slice(ape2.length-2,ape2.length)
+                let partefe=String(fe)
+                let correo=ape[0]+nom[1]+nom[2]+parteape2+partenom2+fe[2]+fe[3]+"@gmail.com"
+                correo = correo.toLocaleLowerCase()
+                localStorage.setItem("correo",correo);
+                document.getElementById("resultado").innerHTML=correo;
+            }
+            function contraseña(){
+                let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>_])[A-Za-z\d!@#$%^&*(),.?":{}|<>_]{9,}$/;
+
+                let contrasena =document.getElementById("contraseña").value;
+                    
+                if (regex.test(contrasena)) {
+                    localStorage.setItem("contrasena", contrasena);
+                    window.location.href = "inicio.html";
+                } else {
+                    document.getElementById("contra").innerHTML="La contraseña no es validad"
+                }
+            }
+    </script>
+    </body>
+</html>
